@@ -37,8 +37,7 @@ import EditCourse from "./components/core/Dashboard/EditCourse";
 import InstructorDashboard from "./components/core/Dashboard/InstructorDashboard";
 
 // ================= AUTH =================
-import ProtectedRoute from "./components/core/Auth/ProtectedRoute";
-import { getUserDetails } from "./services/operations/authApi";
+import { getUserDetails } from "./services/operations/authAPI";
 
 function App() {
   const dispatch = useDispatch();
