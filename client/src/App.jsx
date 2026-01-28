@@ -38,6 +38,8 @@ import InstructorDashboard from "./components/core/Dashboard/InstructorDashboard
 
 // ================= AUTH =================
 import { getUserDetails } from "./services/operations/authAPI";
+import ProtectedRoute from "./components/core/Auth/ProtectedRoute";
+
 
 function App() {
   const dispatch = useDispatch();
