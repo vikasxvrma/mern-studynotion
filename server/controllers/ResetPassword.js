@@ -2,7 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const mailSender = require("../utils/mailSender");
 const crypto = require("crypto");
-const resetPasswordEmailTemplate = require("../mail/templates/resetPasswordEmailtemplate");
+const resetPasswordEmailTemplate = require("../mail/templates/resetPasswordEmailTemplate");
 
 // ========================= RESET PASSWORD TOKEN =========================
 
