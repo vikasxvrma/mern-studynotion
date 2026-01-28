@@ -4,7 +4,7 @@ import { MdOutlineFileUpload, MdDelete } from "react-icons/md";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-import { changePassword } from "../../../services/operations/authApi";
+import { changePassword } from "../../../services/operations/authAPI";
 import {
   deleteProfile,
   updateProfile,

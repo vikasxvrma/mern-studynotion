@@ -9,7 +9,7 @@ import Footer from "../components/common/Footer";
 import frameImage from "../Asset/Image/frame.png";
 import loginImage from "../Asset/Image/aboutus1.webp";
 
-import { logIn } from "../services/operations/authApi";
+import { logIn } from "../services/operations/authAPI";
 
 const Login = () => {
   const navigate = useNavigate();

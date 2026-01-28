@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { resetPassword } from "../services/operations/authApi";
+import { resetPassword } from "../services/operations/authAPI";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 

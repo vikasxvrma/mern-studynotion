@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProfileDropDown from "../core/Auth/ProfileDropDown";
 import { apiConnector } from "../../services/apiconnector";
 import { categories } from "../../services/apis";
-import { logOut } from "../../services/operations/authApi";
+import { logOut } from "../../services/operations/authAPI";
 import ConfirmationModal from "../common/ConfirmationModal";
 
 const Navbar = () => {

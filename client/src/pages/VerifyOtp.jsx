@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineWatchLater } from "react-icons/md";
 
-import { verifyOtp, signUp, sendOtp } from "../services/operations/authApi";
+import { verifyOtp, signUp, sendOtp } from "../services/operations/authAPI";
 import OtpInput from "../components/common/OtpInput";
 
 const VerifyOtp = () => {

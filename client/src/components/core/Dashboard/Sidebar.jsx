@@ -4,7 +4,7 @@ import { IoLogOut } from "react-icons/io5";
 import { IoIosSettings } from "react-icons/io";
 import { Link, useLocation, matchPath, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../../services/operations/authApi";
+import { logOut } from "../../../services/operations/authAPI";
 import ConfirmationModal from "../../common/ConfirmationModal";
 import { FaBars } from "react-icons/fa";
 

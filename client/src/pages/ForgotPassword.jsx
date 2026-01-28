@@ -3,7 +3,7 @@ import CTAButton from "../components/core/HomePage/CTAButton";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPassWordToken } from "../services/operations/authApi";
+import { getPassWordToken } from "../services/operations/authAPI";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");

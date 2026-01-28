@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 
-import { logOut } from "../../../services/operations/authApi";
+import { logOut } from "../../../services/operations/authAPI";
 import ConfirmationModal from "../../common/ConfirmationModal";
 
 const ProfileDropDown = () => {

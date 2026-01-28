@@ -10,7 +10,7 @@ import CTAButton from "../components/core/HomePage/CTAButton";
 import frameImage from "../Asset/Image/frame.png";
 import loginImage from "../Asset/Image/aboutus1.webp";
 
-import { sendOtp } from "../services/operations/authApi";
+import { sendOtp } from "../services/operations/authAPI";
 import { setSignUpData } from "../slices/authSlice";
 
 const SignUp = () => {
