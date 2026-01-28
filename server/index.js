@@ -22,8 +22,8 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
-    credentials: true,
+    origin: true,        // ✅ allow request origin dynamically
+    credentials: true,   // ✅ needed for cookies / auth
   })
 );
 app.use(cookieParser());
