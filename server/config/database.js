@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 
 const dbConnect = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URL, {
+    await mongoose.connect(process.env.DATABASE_URL, {
       tls: true,
       tlsAllowInvalidCertificates: true,
       retryWrites: true,
