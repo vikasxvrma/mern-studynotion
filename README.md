@@ -73,8 +73,8 @@ The project is fully deployed and focuses on **real-world production readiness**
 
 ## 🚀 Live Demo
 
-- **Frontend:   https://mern-studynotion-pi.vercel.app  
-- **Backend API: https://mern-studynotion-backend.onrender.com
+- **Frontend:**   https://mern-studynotion-pi.vercel.app  
+- **Backend API:**  https://mern-studynotion-backend.onrender.com
 
 
 ## 🛠 Tech Stack
@@ -136,6 +136,7 @@ This project goes beyond CRUD and focuses on **production challenges**, includin
 - Frontend–backend integration after deployment
 
 ## 📂 Project Structure
+```text
 studynotion/
 │
 ├── client/ # React frontend (Vite)
@@ -149,11 +150,13 @@ studynotion/
 │ └── utils/
 │
 └── README.md
+```
 
 
 ## ⚙️ Environment Variables
 
 ### Backend (`server/.env`)
+```env
 PORT=4000
 MONGODB_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
@@ -163,39 +166,47 @@ CLOUDINARY_API_SECRET=your_cloudinary_secret
 RAZORPAY_KEY=your_razorpay_key
 RAZORPAY_SECRET=your_razorpay_secret
 CLIENT_URL=frontend_url
+```
 
 ### Frontend (`client/.env`)
+```env
 VITE_BASE_URL=backend_api_url
 VITE_RAZORPAY_KEY=your_razorpay_key
+```
 
 ## 🏃‍♂️ Running Locally
 
 ### Clone the repo
+```bash
 git clone https://github.com/vikasxvrma/mern-studynotion.git
 cd mern-studynotion
+```
 
 ### Start Backend
+```bash
 cd server
 npm install
 npm run dev
+```
 
 ### Start Frontend
+```bash
 cd client 
 npm install 
 npm run dev
-
+```
 📌 Future Improvements
 
-•Add caching for frequently used APIs
-•Improve Lighthouse performance scores
-•Add unit & integration tests
-•Implement refresh tokens
-•Optimize DB queries & indexing
+- Add caching for frequently used APIs
+- Improve Lighthouse performance scores
+- Add unit & integration tests
+- Implement refresh tokens
+- Optimize DB queries & indexing
 
 👨‍💻 Author
 
 Vikas Verma
-•GitHub: https://github.com/vikasxvrma
-•LinkedIn: https://www.linkedin.com/in/vikasxvrma
+- GitHub: https://github.com/vikasxvrma
+- LinkedIn: https://www.linkedin.com/in/vikasxvrma
 
 ⭐ If you found this project useful or interesting, feel free to star the repo!
