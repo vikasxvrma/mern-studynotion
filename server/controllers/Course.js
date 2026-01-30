@@ -5,6 +5,9 @@ const CourseProgress = require("../models/CourseProgress");
 const uploadFileToCloudinary = require("../utils/fileUploader");
 const { populate } = require("../models/Tag");
 require("dotenv").config();
+const multer = require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 const Section = require("../models/Section");
 const SubSection = require("../models/SubSection");
@@ -80,7 +83,7 @@ const createCourse = async (req, res) => {
 
     // ================= THUMBNAIL =================
     const uploadedThumbnail = await uploadFileToCloudinary(
-      thumbnailImage,
+      thumbnailImage.buffer,
       process.env.FOLDER_NAME,
       false
     );
@@ -249,7 +252,7 @@ const updateCourse = async (req, res) => {
     // ================= THUMBNAIL =================
     if (req.file) {
       const uploadedThumbnail = await uploadFileToCloudinary(
-        req.file,
+        req.file.buffer,
         process.env.FOLDER_NAME,
         false
       );

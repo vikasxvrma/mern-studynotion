@@ -4,6 +4,9 @@ const Course = require("../models/Course");
 const Section = require("../models/Section");
 const SubSection = require("../models/SubSection");
 const uploadFileToCloudinary = require("../utils/fileUploader");
+const multer = require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 // ======================= CREATE SUBSECTION =======================
 
@@ -38,7 +41,7 @@ const createSubSection = async (req, res) => {
     }
     //  upload video file to cloudinary
     const videofileuploaded = await uploadFileToCloudinary(
-      videofile,
+      videofile.buffer,
       process.env.FOLDER_NAME,
       true
     );
@@ -97,7 +100,7 @@ const updateSubSection = async (req, res) => {
     let videoUrl;
     if (req.file) {
       const upload = await uploadFileToCloudinary(
-        req.file,
+        req.file.buffer,
         process.env.FOLDER_NAME,
         true
       );
