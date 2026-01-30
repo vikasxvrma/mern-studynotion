@@ -4,21 +4,21 @@ const mailSender = async (email, title, body) => {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: false, // true only for port 465
+      port: Number(process.env.SMTP_PORT), // 465
+      secure: true, // 🔑 REQUIRED for port 465
       auth: {
-        user: process.env.SMTP_USER,
+        user: process.env.SMTP_USER, // apikey
         pass: process.env.SMTP_PASS,
       },
-      connectionTimeout: 10000, // ⬅ prevents hanging
+      connectionTimeout: 10000,
     });
-    console.log("SMTP CONFIG CHECK", {
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  user: process.env.SMTP_USER ? "present" : "missing",
-  pass: process.env.SMTP_PASS ? "present" : "missing",
-});
 
+    console.log("SMTP CONFIG CHECK", {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      user: process.env.SMTP_USER ? "present" : "missing",
+      pass: process.env.SMTP_PASS ? "present" : "missing",
+    });
 
     const info = await transporter.sendMail({
       from: `"StudyNotion" <no-reply@studynotion.com>`,
