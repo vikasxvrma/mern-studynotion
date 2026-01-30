@@ -1,32 +1,31 @@
-const nodemailer= require("nodemailer");
-require("dotenv").config();
+const nodemailer = require("nodemailer");
 
-const mailSender = async(email,title,body)=>{
-    try{
-        let transporter=nodemailer.createTransport({
-            host:process.env.MAIL_HOST,
-            port:process.env.MAIL_PORT,
-            auth:{
-                user:process.env.MAIL_USER,
-                pass:process.env.MAIL_PASS
-            }
-        });
+const mailSender = async (email, title, body) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: false, // true only for port 465
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+      connectionTimeout: 10000, // ⬅ prevents hanging
+    });
 
-        let info =await transporter.sendMail({
-            from:"Studynotion || vikasworks ",
-            to:`${email}`,
-            subject:`${title}`,
-            html:`${body}`,
-        })
-         return info;
+    const info = await transporter.sendMail({
+      from: `"StudyNotion" <no-reply@studynotion.com>`,
+      to: email,
+      subject: title,
+      html: body,
+    });
 
-    }catch(err)
-    {
-       console.log("error in sending mail function from util  ");
-       console.log(err.message );
-    }
-}
+    console.log("Mail sent:", info.messageId);
+    return info;
+  } catch (err) {
+    console.error("MAIL ERROR (ignored):", err.message);
+    return null;
+  }
+};
 
-module.exports= mailSender;
-
-
+module.exports = mailSender;
