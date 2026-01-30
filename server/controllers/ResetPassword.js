@@ -36,7 +36,7 @@ const ResetPasswordToken = async (req, res) => {
     const url = `http://localhost:3000/reset-password/${token}`;
 
     // Send email
-    await mailSender(
+     mailSender(
       email,
       "🔐 Reset Your Password – StudyNotion",
       resetPasswordEmailTemplate({
@@ -109,7 +109,7 @@ const resetPassword = async (req, res) => {
 
     // Send confirmation email to user
     try {
-      await mailSender(
+       mailSender(
         user.email,
         "Password Changed",
         "Your password was successfully updated."

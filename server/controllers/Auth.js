@@ -270,7 +270,7 @@ const ChangePassword = async (req, res) => {
       { new: true }
     );
 
-    await mailSender(
+     mailSender(
     updatedUser.email,
       "✅ Password Changed Successfully – StudyNotion",
       passwordChangedEmailTemplate({

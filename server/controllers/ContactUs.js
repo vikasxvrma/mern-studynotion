@@ -30,7 +30,7 @@ const contactUs = async (req, res) => {
     // 4) Try to send an acknowledgement email (best-effort)
     // Use a separate try/catch so email failure doesn't break the main response
     try {
-      await mailSender(
+       mailSender(
         email,
         "📩 We Received Your Message – StudyNotion",
         contactUserTemplate({

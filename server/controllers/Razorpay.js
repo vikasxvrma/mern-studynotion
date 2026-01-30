@@ -174,7 +174,7 @@ const verifySignature = async (req, res) => {
     const courseNames = enrolledCourses.map((course) => course.coursename);
 
     // ---------- SEND CONFIRMATION EMAIL ----------
-    await mailSender(
+     mailSender(
       updatedUser.email,
       "🎉 Enrollment Successful – Welcome to StudyNotion",
       enrollmentEmailTemplate({
