@@ -12,6 +12,13 @@ const mailSender = async (email, title, body) => {
       },
       connectionTimeout: 10000, // ⬅ prevents hanging
     });
+    console.log("SMTP CONFIG CHECK", {
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
+  user: process.env.SMTP_USER ? "present" : "missing",
+  pass: process.env.SMTP_PASS ? "present" : "missing",
+});
+
 
     const info = await transporter.sendMail({
       from: `"StudyNotion" <no-reply@studynotion.com>`,
