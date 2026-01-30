@@ -3,6 +3,10 @@ const CourseProgress = require("../models/CourseProgress");
 const Profile = require("../models/Profile");
 const User = require("../models/User");
 const uploadFileToCloudinary = require("../utils/fileUploader");
+const multer = require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
 
 // ======================= UPDATE PROFILE =======================
 const updateProfile = async (req, res) => {
@@ -65,21 +69,19 @@ const updateProfilePicture = async (req, res) => {
       });
     }
 
-    // upload to cloudinary
+    
     const uploadResponse = await uploadFileToCloudinary(
-      profilepic,
-      "UserProfile",
-      false
+      profilepic.buffer,
+      "UserProfile"
     );
 
-    // update profile image
+    // ✅ update profile image
     await Profile.findByIdAndUpdate(
       user.additionalDetails,
       { image: uploadResponse.secure_url },
       { new: true }
     );
 
-    // return updated user (SOURCE OF TRUTH)
     const updatedUser = await User.findById(userId).populate(
       "additionalDetails"
     );
@@ -93,10 +95,11 @@ const updateProfilePicture = async (req, res) => {
     console.error("PROFILE PIC ERROR:", error);
     return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Profile picture upload failed",
     });
   }
 };
+
 
 // ======================= DELETE ACCOUNT =======================
 // ======================= DELETE ACCOUNT =======================
