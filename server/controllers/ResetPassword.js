@@ -33,7 +33,7 @@ const ResetPasswordToken = async (req, res) => {
     );
 
     // Create reset link
-    const url = `http://localhost:3000/reset-password/${token}`;
+    const url = `https://mern-studynotion-pi.vercel.app/reset-password/${token}`;
 
     // Send email
      mailSender(
