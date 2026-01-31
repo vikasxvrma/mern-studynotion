@@ -1,37 +1,39 @@
-const nodemailer = require("nodemailer");
+const axios = require("axios");
 
 const mailSender = async (email, title, body) => {
   try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT), // 465
-      secure: true, // 🔑 REQUIRED for port 465
-      auth: {
-        user: process.env.SMTP_USER, // apikey
-        pass: process.env.SMTP_PASS,
+    const response = await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: {
+          name: "StudyNotion",
+          email: "imvikas1027@gmail.com", // can be ANY email, no verification needed
+        },
+        to: [
+          {
+            email: email,
+          },
+        ],
+        subject: title,
+        htmlContent: body,
       },
-      connectionTimeout: 10000,
-    });
+      {
+        headers: {
+          "api-key": process.env.BREVO_API_KEY,
+          "Content-Type": "application/json",
+        },
+        timeout: 10000,
+      }
+    );
 
-    console.log("SMTP CONFIG CHECK", {
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      user: process.env.SMTP_USER ? "present" : "missing",
-      pass: process.env.SMTP_PASS ? "present" : "missing",
-    });
-
-    const info = await transporter.sendMail({
-      from: `"vikasworkspace-StudyNotion" <imvikas1027@gmail.com>`,
-      to: email,
-      subject: title,
-      html: body,
-    });
-
-    console.log("Mail sent:", info.messageId);
-    return info;
-  } catch (err) {
-    console.error("MAIL ERROR (ignored):", err.message);
-    return null;
+    console.log("Mail sent via Brevo API:", response.data.messageId);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "MAIL API ERROR (ignored):",
+      error.response?.data || error.message
+    );
+    return null; // never crash API
   }
 };
 
